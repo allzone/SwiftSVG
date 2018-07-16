@@ -70,13 +70,13 @@ public extension CALayer {
     public convenience init(SVGData: Data, parser: SVGParser? = nil, completion: @escaping (SVGLayer) -> ()) {
         self.init()
         
-        if let cached = SVGCache.default[SVGData.cacheKey] {
-            DispatchQueue.main.safeAsync {
-                self.addSublayer(cached)
-            }
-            completion(cached)
-            return
-        }
+//         if let cached = SVGCache.default[SVGData.cacheKey] {
+//             DispatchQueue.main.safeAsync {
+//                 self.addSublayer(cached)
+//             }
+//             completion(cached)
+//             return
+//         }
         
         let dispatchQueue = DispatchQueue(label: "com.straussmade.swiftsvg", attributes: .concurrent)
         
